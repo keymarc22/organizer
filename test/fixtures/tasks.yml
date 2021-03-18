@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: tasks
+#
+#  id          :integer          not null, primary key
+#  name        :string
+#  description :string
+#  due_date    :date
+#  category_id :integer          not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+one:
+  name: MyString
+  description: MyString
+  due_date: 2021-03-18
+  category: one
+
+two:
+  name: MyString
+  description: MyString
+  due_date: 2021-03-18
+  category: two
