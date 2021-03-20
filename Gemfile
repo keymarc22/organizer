@@ -51,6 +51,7 @@ group :development do
   gem 'hamlit'
   gem 'hamlit-rails'
   gem 'annotate'
+  gem 'letter_opener'
 end
 
 group :test do
