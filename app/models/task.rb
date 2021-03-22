@@ -27,6 +27,7 @@ class Task < ApplicationRecord
   belongs_to :owner, class_name: 'User'
   has_many :participating_users, class_name: 'Participant', dependent: :destroy
   has_many :participants, through: :participating_users, source: :user
+  has_many :notes, dependent: :destroy
 
   validates :name, :description, presence: true
   validates :name, uniqueness: {case_sensitive: false}
