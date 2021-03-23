@@ -93,6 +93,8 @@ GEM
       warden (~> 1.2.3)
     erubi (1.10.0)
     ffi (1.15.0)
+    font-awesome-sass (5.12.0)
+      sassc (>= 1.11)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hamlit (2.14.4)
@@ -247,6 +249,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   cocoon
   devise
+  font-awesome-sass (~> 5.12.0)
   hamlit
   hamlit-rails
   jbuilder (~> 2.7)

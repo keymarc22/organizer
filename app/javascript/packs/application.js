@@ -11,5 +11,8 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-
-import 'cocoon'
+ 
+import "bootstrap"
+import "roboto-fontface"
+import "cocoon"
+import "../src/stylesheets/application"

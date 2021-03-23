@@ -1,23 +1,24 @@
-%h1 Listing categories
-
-%table
-  %thead
-    %tr
-      %th Name
-      %th Description
-      %th
-      %th
-      %th
-
-  %tbody
-    - @categories.each do |category|
-      %tr
-        %td= category.name
-        %td= category.description
-        %td= link_to 'Show', category
-        %td= link_to 'Edit', edit_category_path(category)
-        %td= link_to 'Destroy', category, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Category', new_category_path
+.categories.index-page
+  .card
+    .card-body
+      %h1 Lista de Categorias
+      %table.table.text-center{style: 'margin-top: 1.5rem'}
+        %thead.thead-dark
+          %tr
+            %th Nombre
+            %th Descripcion
+            %th Opciones
+        %tbody
+          - @categories.each do |category|
+            %tr
+              %td= category.name
+              %td= category.description
+              %td
+                = link_to 'show', category
+                |
+                = link_to 'Edit', edit_category_path(category)
+                |
+                = link_to 'delete', category, method: :delete, data: { confirm: 'Esta seguro?'}
+      %br
+      .text-right
+        = link_to 'Nueva Categoria', new_category_path, class: 'btn btn-info'
