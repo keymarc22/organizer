@@ -50,8 +50,10 @@ class Task < ApplicationRecord
   end
 
   def send_email
-    (participants + [owner]).each do |user|
-      ParticipantMailer.with(user: user, task: self).new_task_mailer.deliver!
+    return unless Rails.env.development?
+      (participants + [owner]).each do |user|
+        ParticipantMailer.with(user: user, task: self).new_task_mailer.deliver!
+      end
     end
   end
 end
