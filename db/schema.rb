@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_03_20_163258) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -21,8 +24,8 @@ ActiveRecord::Schema.define(version: 2021_03_20_163258) do
 
   create_table "notes", force: :cascade do |t|
     t.text "body"
-    t.integer "user_id", null: false
-    t.integer "task_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "task_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["task_id"], name: "index_notes_on_task_id"
@@ -31,8 +34,8 @@ ActiveRecord::Schema.define(version: 2021_03_20_163258) do
 
   create_table "participants", force: :cascade do |t|
     t.integer "role"
-    t.integer "user_id", null: false
-    t.integer "task_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "task_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["task_id"], name: "index_participants_on_task_id"
@@ -43,10 +46,10 @@ ActiveRecord::Schema.define(version: 2021_03_20_163258) do
     t.string "name"
     t.string "description"
     t.date "due_date"
-    t.integer "category_id", null: false
+    t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "owner_id", null: false
+    t.bigint "owner_id", null: false
     t.string "code"
     t.index ["category_id"], name: "index_tasks_on_category_id"
     t.index ["owner_id"], name: "index_tasks_on_owner_id"
