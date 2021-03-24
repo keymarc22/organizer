@@ -1,24 +1,10 @@
-# README
+# Organizer
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Project to organize in a basic way the tasks of a work team, or study. 
+It allows:
 
-Things you may want to cover:
+- Create, edit and delete Categories for the tasks
+- Create, edit and delete tasks
+- Assign tasks to users.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Link:
