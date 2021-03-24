@@ -2,15 +2,15 @@
 #
 # Table name: tasks
 #
-#  id          :integer          not null, primary key
+#  id          :bigint           not null, primary key
 #  code        :string
 #  description :string
 #  due_date    :date
 #  name        :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  category_id :integer          not null
-#  owner_id    :integer          not null
+#  category_id :bigint           not null
+#  owner_id    :bigint           not null
 #
 # Indexes
 #
@@ -19,8 +19,8 @@
 #
 # Foreign Keys
 #
-#  category_id  (category_id => categories.id)
-#  owner_id     (owner_id => users.id)
+#  fk_rails_...  (category_id => categories.id)
+#  fk_rails_...  (owner_id => users.id)
 #
 
 one:
