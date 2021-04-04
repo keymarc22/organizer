@@ -1,18 +1,18 @@
 .tasks.show-page
   .display-4.mt-3.mb-3 
-    = "Tarea"
+    = t('application.page.title.task')
     %span.small= "[#{@task.code}]"
-  %h2 Informacion
+  %h2= t('application.page.subtitle.information')
   .card 
     .card-body
       .table-responsive
         %table.table.table-striped.table-borderless
           %thead
             %tr
-              %th Codigo
-              %th Nombre
-              %th Categoria
-              %th Creador
+              %th= t('table.head_title.code')
+              %th= t('table.head_title.name')
+              %th= t('table.head_title.category')
+              %th= t('table.head_title.created_by')
           %tbody
             %tr
               %td= @task.code
@@ -21,22 +21,22 @@
               %td= @task.owner.email
         %table.table.table-striped.table-borderless
           %thead
-            %th Descripcion
+            %th= t('table.head_title.description')
           %tbody
             %tr
               %td.font-weight-light= @task.description
       .task-participants
         .task-participants-header
-          .font-weight-bold.text-uppercase= 'Participantes'
+          .font-weight-bold.text-uppercase= t('form.subtitle.participants')
         - @task.participating_users.includes(:user).each do |participant|
           .task-participant{ class: "task-participant--#{participant.role}"}
             = image_tag "https://robohash.org/#{participant.user.email}?size=60x60", title: participant.user.email
-      = link_to 'edit', edit_task_path(@task)
+      = link_to t('common.edit'), edit_task_path(@task)
       \|
-      = link_to 'back', tasks_path
-              
+      = link_to t('common.back'), tasks_path
+
   %br
-  %h2.mt-2.mb-2 Notas
+  %h2.mt-2.mb-2= t('application.page.title.notes')
   .notes-container
     .card
       .card-body
@@ -48,5 +48,4 @@
         - else
           .notes
         = simple_form_for Note.new, url: task_notes_path(task_id: @task.id), remote: true do |f|
-          = f.input :body, label: false, placeholder: 'Escriba una nota', as: :string, input_html: { autocomplete: :off }
-	
+          = f.input :body, label: false, placeholder: t('forms.placeholde.note.write_a_note'), as: :string, input_html: { autocomplete: :off }

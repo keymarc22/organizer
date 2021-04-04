@@ -1,6 +1,6 @@
 .tasks.index-page
-	.display-4 Lista de Tareas
-	%p.text-muted.mb-2 A continuación verás toda la lista de tareas creadas, podrás crear una nueva tarea, editarla o eliminarla si eres el creador de la misma
+	.display-4= t('application.page.title.task_list')
+	%p.text-muted.mb-2= t('application.page.instructions')
 	.card.bg-gray
 		.card-body.pb-2
 			.tasks-container
@@ -14,7 +14,7 @@
 							.task-description= task.description
 							.task-dates
 								%b= task.owner.email
-								= "creado el #{l task.created_at, format: :long} / vence el #{task.due_date}"
+								= "#{t('application.section.message.created_in')} #{l task.created_at, format: :long} / #{t('application.section.message.due_date_is')} #{task.due_date}"
 						.task-interactions
 							.task-participants
 								- task.participating_users.includes(:user).each do |participant|
@@ -25,6 +25,6 @@
 									%a#taskMenu{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown"}
 										.fas.fa-ellipsis-v
 									.dropdown-menu{"aria-labelledby" => "taskMenu"}
-										= link_to 'show', task, class: 'dropdown-item'
-										= link_to 'edit', edit_task_path(task), class: 'dropdown-item'
-										= link_to 'delete', task, :method => :delete, :data => { :confirm => 'Esta seguro?' }, class: 'dropdown-item'
+										= link_to t('common.show'), task, class: 'dropdown-item'
+										= link_to t('common.edit'), edit_task_path(task), class: 'dropdown-item'
+										= link_to t('common.destroy'), task, :method => :delete, :data => { :confirm => t('common.delete.confirmation.are_you_sure?')}, class: 'dropdown-item'

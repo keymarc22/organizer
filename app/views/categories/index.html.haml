@@ -1,24 +1,24 @@
 .categories.index-page
   .card
     .card-body
-      %h1 Lista de Categorias
+      %h1= t('application.page.title.categories_list')
       %table.table.text-center{style: 'margin-top: 1.5rem'}
         %thead.thead-dark
           %tr
-            %th Nombre
-            %th Descripcion
-            %th Opciones
+            %th= t('table.head_title.name')
+            %th= t('table.head_title.description')
+            %th= t('table.head_title.options')
         %tbody
           - @categories.each do |category|
             %tr
               %td= category.name
               %td= category.description
               %td
-                = link_to 'show', category
+                = link_to t('common.show'), category
                 |
-                = link_to 'Edit', edit_category_path(category)
+                = link_to t('common.edit'), edit_category_path(category)
                 |
-                = link_to 'delete', category, method: :delete, data: { confirm: 'Esta seguro?'}
+                = link_to t('common.destroy'), category, method: :delete, data: { confirm: 'Esta seguro?'}
       %br
       .text-right
-        = link_to 'Nueva Categoria', new_category_path, class: 'btn btn-info'
+        = link_to t('forms.button.new_category'), new_category_path, class: 'btn btn-info'

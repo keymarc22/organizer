@@ -4,9 +4,9 @@
 	.form-inputs
 		.row
 			.col-12
-				= f.input :name, label: 'Nombre'
+				= f.input :name, label: t('forms.input.name')
 		.row
 			.col-12
-				= f.input :description, as: :text, label: 'Descripción'
+				= f.input :description, as: :text, label: t('forms.input.description')
 	.form-actions
 		= f.button :submit, class: 'btn btn-info'

@@ -5,20 +5,20 @@
 	.form-inputs
 		.row
 			.col-sm-6
-				= f.input :name, label: 'Nombre'
+				= f.input :name, label: t('forms.input.name')
 			.col-sm-3
-				= f.input :due_date, as: :string, input_html: { type: :date }, label: 'Fecha de vencimiento'
+				= f.input :due_date, as: :string, input_html: { type: :date }, label: t('forms.input.due_date')
 			.col-sm-3
-				= f.association :category, label: 'Categoría'
+				= f.association :category, label: t('forms.input.category')
 		.row
 			.col-sm-12
 				= f.input :description
 		#addParticipants
 			%br
 			%h3
-				.uppercased-font{ style: 'display: inline-block;' } Participantes
+				.uppercased-font{ style: 'display: inline-block;' }= t('forms.subtitle.participants')
 				= link_to_add_association f, :participating_users, class: 'btn btn-info float-right', 'data-association-insertion-node' => '.participants .participants-container', 'data-turbolinks' => false do
-					Agregar un participante
+					= t('forms.button.add_participants')
 					.fa.fa-plus-circle
 			.participants
 				= f.simple_fields_for :participating_users do |g|

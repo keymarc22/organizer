@@ -2,11 +2,11 @@
   .card
     .card-body
       %p
-        %b Nombre: 
+        %b= t('category.show.title.name')
         = @category.name
       %p
-        %b Descripcion: 
+        %b= t('category.show.title.description')
         = @category.description
-      = link_to 'Edit', edit_category_path(@category), class: 'btn-interaction'
+      = link_to t('common.edit'), edit_category_path(@category), class: 'btn-interaction'
       /|
-      = link_to 'Back', categories_path, class: 'btn-interaction'
+      = link_to t('common.back'), categories_path, class: 'btn-interaction'

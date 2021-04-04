@@ -1,0 +1,142 @@
+---
+es:
+  application:
+    nav_bar:
+      categories: Categorias
+      home: Inicio
+    page:
+      instructions: A continuación verás toda la lista de tareas creadas, podrás crear
+        una nueva tarea, editarla o eliminarla si eres el creador de la misma
+      subtitle:
+        information: Informacion
+      title:
+        categories_list: Lista de categorias
+        edit_category: Editar categoria
+        edit_task: Editar tarea
+        new_category: Nueva categoria
+        notes: Notas
+        task: Tarea
+        task_list: Lista de tareas
+    section:
+      message:
+        created_in: Creado el
+        due_date_is: vence el
+    title: Organizador
+  category:
+    show:
+      title:
+        description: Descripcion
+        name: Nombre
+  common:
+    back: Volver
+    delete:
+      confirmation:
+        are_you_sure?: Esta seguro?
+    destroy: Eliminar
+    destroy_session: Cerrar sesion
+    edit: Editar
+    new_task: Nueva tarea
+    show: Mostrar
+    submit: Enviar
+  date:
+    day_names:
+    - Lunes
+    - Martes
+    - Miercoles
+    - Jueves
+    - Viernes
+    - Sabado
+    - Domingo
+    month_names:
+    - Enero
+    - Febrero
+    - Marzo
+    - Abril
+    - Mayo
+    - Junio
+    - Julio
+    - Agosto
+    - Septiembre
+    - Octubre
+    - Noviembre
+    - Diciembre
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: Hace una hora
+        other: Hace %{count} horas
+      about_x_months:
+        one: Hace un mes
+        other: Hace %{count} meses
+      about_x_years:
+        one: Hace un ano
+        other: Hace %{count} anos
+      almost_x_years:
+        one: Casi un ano
+        other: Casi %{count} anos
+      half_a_minute: medio minuto
+      less_than_x_minutes:
+        one: menos de un minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: menos de un segundo
+        other: menos de %{count} segundos
+      over_x_years:
+        one: Mas de un ano
+        other: Mas de %{count} ano
+      x_days:
+        one: 1 dia
+        other: "%{count} dias"
+      x_minutes:
+        one: 1 minuto
+        other: "%{count} minutos"
+      x_months:
+        one: 1 mes
+        other: "%{count} meses"
+      x_seconds:
+        one: 1 segundo
+        other: "%{count} segundos"
+      x_years:
+        one: 1 ano
+        other: "%{count} anos"
+    prompts:
+      day: Dia
+      hour: Hora
+      minute: Minuto
+      month: Mes
+      second: Segundo
+      year: Ano
+  form:
+    subtitle:
+      participants: Participantes
+  forms:
+    button:
+      add_participants: Agregar participantes
+      new_category: Nueva categoria
+      submit: Enviar
+    input:
+      category: Categoria
+      description: Description
+      due_date: Fecha de vencimiento
+      name: Nombre
+      role: Rol
+      user: Usuario
+    placeholde:
+      note:
+        write_a_note: Escriba una nota
+    subtitle:
+      participants: Participantes
+  hello: Hola mundo
+  table:
+    head_title:
+      category: Categoria
+      code: Codigo
+      created_by: Creado por
+      description: Descripcion
+      name: Nombre
+      options: Opciones
+  time:
+    formats:
+      default: "%Y/%m/%d"
+      long: "%B %d, %Y"
+      short: "%b %d"
