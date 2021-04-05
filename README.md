@@ -7,4 +7,4 @@ It allows:
 - Create, edit and delete tasks
 - Assign tasks to users.
 
-Link:
+Link: https://organizer-kc.herokuapp.com/
