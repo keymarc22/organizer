@@ -25,6 +25,7 @@ gem 'pg'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise'
@@ -37,6 +38,7 @@ gem 'hamlit-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem "dotenv-rails"
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry'
   gem 'pry-doc'
