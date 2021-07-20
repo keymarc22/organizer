@@ -1,13 +1,13 @@
-# == Schema Information
-#
-# Table name: categories
-#
-#  id          :bigint           not null, primary key
-#  description :string
-#  name        :string
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#
-class Category < ApplicationRecord
-    has_many :tasks
+class Category
+  # module for mondoid
+  include Mongoid::Document
+  include Mongoid::Timestamps
+
+  field :name, type: String
+  field :description, type: String
+
+  has_many :tasks
+
+  validates :name, :description, presence: true
+  validates :name, uniqueness: { case_insensitive: false }
 end

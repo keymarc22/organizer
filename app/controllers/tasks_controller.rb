@@ -4,16 +4,11 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json
   def index
-    @tasks = Task.joins(:participants).where(
-      'owner_id = ? OR participants.user_id = ?',
-      current_user.id, 
-      current_user.id
-    ).group(:id)
+    @tasks = (current_user.owned_tasks + current_user.tasks).uniq
   end
 
   # GET /tasks/1 or /tasks/1.json
-  def show
-  end
+  def show; end
 
   # GET /tasks/new
   def new
@@ -21,14 +16,13 @@ class TasksController < ApplicationController
   end
 
   # GET /tasks/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /tasks or /tasks.json
   def create
     @task = Task.new(task_params)
     @task.owner = current_user
-    
+
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: "Task was successfully created." }
@@ -71,16 +65,16 @@ class TasksController < ApplicationController
     # Only allow a list of trusted parameters through.
     def task_params
       params.require(:task).permit(
-        :name, 
-        :description, 
-        :due_date, 
+        :name,
+        :description,
+        :due_date,
         :category_id,
         participating_users_attributes: [
           :user_id,
           :role,
           :id,
           :_destroy
-        ],
+        ]
         )
     end
 end

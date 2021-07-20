@@ -1,48 +1,38 @@
-# == Schema Information
-#
-# Table name: tasks
-#
-#  id          :bigint           not null, primary key
-#  code        :string
-#  description :string
-#  due_date    :date
-#  name        :string
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  category_id :bigint           not null
-#  owner_id    :bigint           not null
-#
-# Indexes
-#
-#  index_tasks_on_category_id  (category_id)
-#  index_tasks_on_owner_id     (owner_id)
-#
-# Foreign Keys
-#
-#  fk_rails_...  (category_id => categories.id)
-#  fk_rails_...  (owner_id => users.id)
-#
-class Task < ApplicationRecord
+class Task
+  # module for mondoid
+  include Mongoid::Document
+  include Mongoid::Timestamps
+
+  field :name, type: String
+  field :description, type: String
+  field :due_date, type: Date
+  field :code, type: String
+
   belongs_to :category
   belongs_to :owner, class_name: 'User'
+
   has_many :participating_users, class_name: 'Participant', dependent: :destroy
-  has_many :participants, through: :participating_users, source: :user
+  # has_many :participants, through: :participating_users, source: :user
+
   has_many :notes, dependent: :destroy
 
   validates :name, :description, presence: true
-  validates :name, uniqueness: {case_sensitive: false}
+  validates :name, uniqueness: { case_sensitive: false }
   validate :due_date_validity
-  validates :participating_users, presence: true
 
   before_create :create_code
   after_create :send_email
 
   accepts_nested_attributes_for :participating_users, allow_destroy: true
 
+  def participants
+    participating_users.includes(:user).map(&:user)
+  end
+
   def due_date_validity
-      return if due_date.blank?
-      return if due_date > Date.today
-      errors.add :due_date, 'La fecha no puede estar en el pasado'
+    return if due_date.blank?
+    return if due_date > Date.today
+    errors.add :due_date, 'La fecha no puede estar en el pasado'
   end
 
   def create_code
@@ -50,6 +40,7 @@ class Task < ApplicationRecord
   end
 
   def send_email
+    return
     return unless Rails.env.development?
     (participants + [owner]).each do |user|
       ParticipantMailer.with(user: user, task: self).new_task_mailer.deliver!
