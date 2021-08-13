@@ -1,14 +1,16 @@
-['juan', 'andrea', 'leon', 'andres', 'natalia', 'camilo', 'rusbel', 'johan'].each do |name|
-  User.create email: "#{name}@platzi.com", password: '123456'
+# frozen_string_literal: true
+
+%w[kamila alcides anyerlis michael elvis carlos angel edixon].each do |name|
+  User.create email: "#{name}@gmail.com", password: '123456'
 end
 puts 'Users has been created'
 
-['desarrollo', 'mercadeo', 'conceptualización', 'ejercicios'].each do |name|
+%w[desarrollo mercadeo conceptualización ejercicios].each do |name|
   Category.create name: name, description: '--'
 end
 puts 'Categories has been created'
 
-owner = User.find_by(email: 'johan@platzi.com')
+owner = User.find_by(email: 'keymar@gmail.com')
 [
   ['conceptualización', 'Bienvenida ', ['juan:1', 'leon:2', 'andrea:random']],
   ['conceptualización', '¿Qué es ruby on rails y por qué usarlo?', ['juan:1', 'leon:2', 'andrea:random']],
@@ -38,13 +40,13 @@ owner = User.find_by(email: 'johan@platzi.com')
   ['desarrollo', 'Añadir comentarios vía AJAX', ['juan:1', 'leon:2', 'andrea:random']],
   ['desarrollo', 'Embellecer nuestra aplicación', ['juan:1', 'leon:2', 'andrea:random']],
   ['conceptualización', 'Desplegando a Heroku', ['juan:1', 'leon:2', 'andrea:random']],
-  ['conceptualización', 'Conclusiones del curso', ['juan:1', 'leon:2', 'andrea:random']],
+  ['conceptualización', 'Conclusiones del curso', ['juan:1', 'leon:2', 'andrea:random']]
 ].each do |category, description, participant_set|
   participants = participant_set.map do |participant|
     user_name, raw_role = participant.split(':')
     role = raw_role == 'random' ? [1, 2].sample : raw_role
     Participant.new(
-      user: User.find_by(email: "#{user_name}@platzi.com"),
+      user: User.find_by(email: "#{user_name}@gmail.com"),
       role: role.to_i
     )
   end
