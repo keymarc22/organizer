@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 gem 'sucker_punch'
+gem 'aasm'
 
 gem 'mongoid', github: 'mongodb/mongoid', branch: 'master'
 
