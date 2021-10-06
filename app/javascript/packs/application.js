@@ -12,4 +12,7 @@ require("jquery")
 import "bootstrap"
 import "roboto-fontface"
 import "cocoon"
+import "selectize"
+
 import "../src/stylesheets/application"
+import "../src/javascripts/main"

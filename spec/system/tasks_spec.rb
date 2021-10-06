@@ -28,7 +28,7 @@ RSpec.describe 'Tasks', type: :system do
 
       click_on 'Agregar un participante'
 
-      xpath = '//*[@id="addParticipants"]/div/div[1]'
+      xpath = '//*[@id="new_task"]/div/h3/div[2]/div[1]'
       within(:xpath, xpath) do
         select(participant.email, from: 'Usuario')
         select('responsible', from: 'Rol')

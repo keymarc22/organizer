@@ -32,6 +32,7 @@ class Task
   def due_date_validity
     return if due_date.blank?
     return if due_date > Date.today
+
     errors.add :due_date, 'La fecha no puede estar en el pasado'
   end
 
@@ -40,10 +41,8 @@ class Task
   end
 
   def send_email
-    return
     return unless Rails.env.development?
-    (participants + [owner]).each do |user|
-      ParticipantMailer.with(user: user, task: self).new_task_mailer.deliver!
-    end
+
+    Tasks::SendEmail.new.call self
   end
 end
