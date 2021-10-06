@@ -26,16 +26,16 @@ class Task
   before_create :create_code
   after_create :send_email
 
-  after_all_transitions :audit_status_change
-
+  
   accepts_nested_attributes_for :participating_users, allow_destroy: true
-
+  
   # status machine
-
+  
   aasm column: :status do
     state :pending, initial: true
     state :in_process, :finished
-
+    
+    after_all_transitions :audit_status_change
     event :start do
       transitions from: :pending, to: :in_process
     end
