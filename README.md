@@ -6,5 +6,3 @@ It allows:
 - Create, edit and delete Categories for the tasks
 - Create, edit and delete tasks
 - Assign tasks to users.
-
-Link: https://organizer-kc.herokuapp.com/
